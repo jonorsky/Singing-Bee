@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name"> </string>
+    <string name="positive_popout_text_default">You have successfully completed the challenge. Keep it up to earn more points.</string>
+    <string name="positive_popout_title_default">Like a boss!</string>
+    <string name="negative_popout_text_default">You have failed to complete the challenge. So close!</string>
+    <string name="negative_popout_title_default">Awww...Snap!</string>
+    <string name="play">Play</string>
+    <string name="pause">Pause</string>
+    <string name="stop">Stop</string>
+
+</resources>
