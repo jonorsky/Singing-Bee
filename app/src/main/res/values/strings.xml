@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name"> </string>
+    <string name="app_name">The Singing Bee</string>
     <string name="positive_popout_text_default">You have successfully completed the challenge. Keep it up to earn more points.</string>
     <string name="positive_popout_title_default">Like a boss!</string>
     <string name="negative_popout_text_default">You have failed to complete the challenge. So close!</string>
