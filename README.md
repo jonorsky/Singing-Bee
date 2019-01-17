@@ -1,6 +1,6 @@
 # The Singing Bee
 
-# ![alt text](https://i.imgur.com/nQY5MDE.png)
+<!--- ![alt text](https://i.imgur.com/nQY5MDE.png) -->
 # ![alt text](https://i.imgur.com/B8PFrcF.png)
 
 ### Requirements
