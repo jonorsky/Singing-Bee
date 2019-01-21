@@ -30,7 +30,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public class QuizActivity extends AppCompatActivity implements RecognitionListener {
+public class God_File extends AppCompatActivity implements RecognitionListener {
 
     private TextView mScoreView, mQuestion;
     private Button mTrueButton;
@@ -54,7 +54,7 @@ public class QuizActivity extends AppCompatActivity implements RecognitionListen
     private ProgressBar progressBar;
     private SpeechRecognizer speech = null;
     private Intent recognizerIntent;
-    private String LOG_TAG = "MainActivity";
+    private String LOG_TAG = "First_Page";
 
     private AudioManager mAudioManager;
     private int mStreamVolume = 0;
@@ -122,11 +122,11 @@ public class QuizActivity extends AppCompatActivity implements RecognitionListen
 
                     // Check if last question
                     if(rotation == Database.questions.length){
-                        Intent i = new Intent(QuizActivity.this, Last_Page.class);
+                        Intent i = new Intent(God_File.this, Last_Page.class);
                         Bundle bundle = new Bundle();
                         bundle.putInt("finalScore",mScore);
                         i.putExtras(bundle);
-                        QuizActivity.this.finish();
+                        God_File.this.finish();
                         startActivity(i);
                     }
                     else{
@@ -138,11 +138,11 @@ public class QuizActivity extends AppCompatActivity implements RecognitionListen
                 else{
                     // Check if last question
                     if(mQuestionNumber == Database.questions.length){
-                        Intent i = new Intent(QuizActivity.this, Last_Page.class);
+                        Intent i = new Intent(God_File.this, Last_Page.class);
                         Bundle bundle = new Bundle();
                         bundle.putInt("finalScore",mScore);
                         i.putExtras(bundle);
-                        QuizActivity.this.finish();
+                        God_File.this.finish();
                         startActivity(i);
                     }
                     else{
@@ -190,7 +190,7 @@ public class QuizActivity extends AppCompatActivity implements RecognitionListen
                     progressBar.setVisibility(View.VISIBLE);
                     progressBar.setIndeterminate(true);
                     ActivityCompat.requestPermissions
-                            (QuizActivity.this,
+                            (God_File.this,
                                     new String[]{Manifest.permission.RECORD_AUDIO},
                                     REQUEST_RECORD_PERMISSION);
                 } else {
@@ -315,7 +315,7 @@ public class QuizActivity extends AppCompatActivity implements RecognitionListen
                     // mAudioManager.setStreamVolume(AudioManager.STREAM_MUSIC, mAudioManager.getStreamMaxVolume(AudioManager.STREAM_MUSIC),
                     //         AudioManager.FLAG_REMOVE_SOUND_AND_VIBRATE);
                 } else {
-                    Toast.makeText(QuizActivity.this, "Permission Denied!", Toast
+                    Toast.makeText(God_File.this, "Permission Denied!", Toast
                             .LENGTH_SHORT).show();
                 }
         }
