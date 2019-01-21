@@ -1,6 +1,6 @@
 package com.frostflux.www.minimalquiz;
 
-public class QuizBook {
+public class Database {
 
     public static String[] questions = new String[]{
             "default",

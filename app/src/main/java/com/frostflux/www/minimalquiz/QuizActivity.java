@@ -121,7 +121,7 @@ public class QuizActivity extends AppCompatActivity implements RecognitionListen
                     updateScore(mScore);
 
                     // Check if last question
-                    if(rotation == QuizBook.questions.length){
+                    if(rotation == Database.questions.length){
                         Intent i = new Intent(QuizActivity.this,ResultsActivity.class);
                         Bundle bundle = new Bundle();
                         bundle.putInt("finalScore",mScore);
@@ -137,7 +137,7 @@ public class QuizActivity extends AppCompatActivity implements RecognitionListen
                 }
                 else{
                     // Check if last question
-                    if(mQuestionNumber == QuizBook.questions.length){
+                    if(mQuestionNumber == Database.questions.length){
                         Intent i = new Intent(QuizActivity.this,ResultsActivity.class);
                         Bundle bundle = new Bundle();
                         bundle.putInt("finalScore",mScore);
@@ -209,14 +209,14 @@ public class QuizActivity extends AppCompatActivity implements RecognitionListen
     private void updateQuestion() {
         //mQuestionNumber++;
         mQuestionNumber= arr.get(pivot);
-        mQuestion.setText(QuizBook.questions[mQuestionNumber]);
-        mAnswer = QuizBook.answers[mQuestionNumber];
+        mQuestion.setText(Database.questions[mQuestionNumber]);
+        mAnswer = Database.answers[mQuestionNumber];
 
         pivot++;
 
         Log.d("Debug: ",Integer.toString(mQuestionNumber)  );
-        Log.d("Debug: ", "======================" + Integer.toString(rotation) + ":" + Integer.toString(QuizBook.questions.length));
-        Toast.makeText(this,QuizBook.check[mQuestionNumber], Toast.LENGTH_LONG).show();
+        Log.d("Debug: ", "======================" + Integer.toString(rotation) + ":" + Integer.toString(Database.questions.length));
+        Toast.makeText(this, Database.check[mQuestionNumber], Toast.LENGTH_LONG).show();
         rotation++;
 
         // Animation
@@ -415,16 +415,16 @@ public class QuizActivity extends AppCompatActivity implements RecognitionListen
         }
 
         //if(answer.equals(text)) {
-        if(QuizBook.check[mQuestionNumber].equals(text.toLowerCase())) {
+        if(Database.check[mQuestionNumber].equals(text.toLowerCase())) {
             s_sound = MediaPlayer.create(this, R.raw.correct);
             text += " = Correct!";
-            text += QuizBook.check[mQuestionNumber];
+            text += Database.check[mQuestionNumber];
 
         }
         else {
             s_sound = MediaPlayer.create(this, R.raw.wrong);
             text += " = Wrong, Try Again";
-            text += QuizBook.check[mQuestionNumber];
+            text += Database.check[mQuestionNumber];
         }
         s_sound.start();
 
