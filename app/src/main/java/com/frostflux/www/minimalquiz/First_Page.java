@@ -51,7 +51,7 @@ public class First_Page extends AppCompatActivity {
         mStartButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(First_Page.this, God_File.class));
+                startActivity(new Intent(First_Page.this, Mid_Page.class));
             }
         });
     }

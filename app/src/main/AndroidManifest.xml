@@ -21,7 +21,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".God_File" />
+        <activity android:name=".Mid_Page" />
         <activity android:name=".Last_Page"></activity>
     </application>
 

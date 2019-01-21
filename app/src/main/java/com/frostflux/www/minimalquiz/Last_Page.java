@@ -38,7 +38,7 @@ public class Last_Page extends AppCompatActivity {
         mRetryButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(Last_Page.this, God_File.class));
+                startActivity(new Intent(Last_Page.this, Mid_Page.class));
                 Last_Page.this.finish();
             }
         });

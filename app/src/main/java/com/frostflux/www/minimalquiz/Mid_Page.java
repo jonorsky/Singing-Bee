@@ -30,7 +30,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public class God_File extends AppCompatActivity implements RecognitionListener {
+public class Mid_Page extends AppCompatActivity implements RecognitionListener {
 
     private TextView mScoreView, mQuestion;
     private Button mTrueButton;
@@ -122,11 +122,11 @@ public class God_File extends AppCompatActivity implements RecognitionListener {
 
                     // Check if last question
                     if(rotation == Database.questions.length){
-                        Intent i = new Intent(God_File.this, Last_Page.class);
+                        Intent i = new Intent(Mid_Page.this, Last_Page.class);
                         Bundle bundle = new Bundle();
                         bundle.putInt("finalScore",mScore);
                         i.putExtras(bundle);
-                        God_File.this.finish();
+                        Mid_Page.this.finish();
                         startActivity(i);
                     }
                     else{
@@ -138,11 +138,11 @@ public class God_File extends AppCompatActivity implements RecognitionListener {
                 else{
                     // Check if last question
                     if(mQuestionNumber == Database.questions.length){
-                        Intent i = new Intent(God_File.this, Last_Page.class);
+                        Intent i = new Intent(Mid_Page.this, Last_Page.class);
                         Bundle bundle = new Bundle();
                         bundle.putInt("finalScore",mScore);
                         i.putExtras(bundle);
-                        God_File.this.finish();
+                        Mid_Page.this.finish();
                         startActivity(i);
                     }
                     else{
@@ -190,7 +190,7 @@ public class God_File extends AppCompatActivity implements RecognitionListener {
                     progressBar.setVisibility(View.VISIBLE);
                     progressBar.setIndeterminate(true);
                     ActivityCompat.requestPermissions
-                            (God_File.this,
+                            (Mid_Page.this,
                                     new String[]{Manifest.permission.RECORD_AUDIO},
                                     REQUEST_RECORD_PERMISSION);
                 } else {
@@ -315,7 +315,7 @@ public class God_File extends AppCompatActivity implements RecognitionListener {
                     // mAudioManager.setStreamVolume(AudioManager.STREAM_MUSIC, mAudioManager.getStreamMaxVolume(AudioManager.STREAM_MUSIC),
                     //         AudioManager.FLAG_REMOVE_SOUND_AND_VIBRATE);
                 } else {
-                    Toast.makeText(God_File.this, "Permission Denied!", Toast
+                    Toast.makeText(Mid_Page.this, "Permission Denied!", Toast
                             .LENGTH_SHORT).show();
                 }
         }

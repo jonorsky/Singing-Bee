@@ -8,7 +8,7 @@
     android:gravity="center"
     android:orientation="vertical"
     android:padding="16sp"
-    tools:context=".God_File">
+    tools:context=".Mid_Page">
 
 
     <RelativeLayout
