@@ -292,13 +292,6 @@ public class Mid_Page extends AppCompatActivity implements RecognitionListener {
         }
     }
 
-    /*
-    @Override
-    protected void onStop(){
-        super.onStop();
-        stopPlayer();
-    }*/
-
     // ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
     @Override
@@ -308,15 +301,9 @@ public class Mid_Page extends AppCompatActivity implements RecognitionListener {
             case REQUEST_RECORD_PERMISSION:
                 if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                     speech.startListening(recognizerIntent);
-
-                    // [ A1= Fix: Remove Speech Synthesizer Sound]
-                    mStreamVolume = mAudioManager.getStreamVolume(AudioManager.STREAM_MUSIC); // getting system volume into var for later un-muting
-                    //mAudioManager.setStreamVolume(AudioManager.STREAM_MUSIC, 0, 0); // setting system volume to zero, muting
-                    // mAudioManager.setStreamVolume(AudioManager.STREAM_MUSIC, mAudioManager.getStreamMaxVolume(AudioManager.STREAM_MUSIC),
-                    //         AudioManager.FLAG_REMOVE_SOUND_AND_VIBRATE);
+                    mStreamVolume = mAudioManager.getStreamVolume(AudioManager.STREAM_MUSIC);
                 } else {
-                    Toast.makeText(Mid_Page.this, "Permission Denied!", Toast
-                            .LENGTH_SHORT).show();
+                    Toast.makeText(Mid_Page.this, "Permission Denied!", Toast.LENGTH_SHORT).show();
                 }
         }
     }
@@ -358,14 +345,6 @@ public class Mid_Page extends AppCompatActivity implements RecognitionListener {
         Log.i(LOG_TAG, "onEndOfSpeech");
         progressBar.setIndeterminate(true);
         toggleButton.setChecked(false);
-
-        // [ A1= Fix: Remove Speech Synthesizer Sound]
-        //mAudioManager.setStreamVolume(AudioManager.STREAM_MUSIC, 0, 0);
-
-
-
-        //mAudioManager.setStreamVolume(AudioManager.STREAM_MUSIC, mAudioManager.getStreamMaxVolume(AudioManager.STREAM_MUSIC),
-        //        AudioManager.FLAG_REMOVE_SOUND_AND_VIBRATE);
     }
 
     @Override
@@ -414,7 +393,6 @@ public class Mid_Page extends AppCompatActivity implements RecognitionListener {
             text = "hello";
         }
 
-        //if(answer.equals(text)) {
         if(Database.check[mQuestionNumber].equals(text.toLowerCase())) {
             s_sound = MediaPlayer.create(this, R.raw.correct);
             text += " = Correct!";
