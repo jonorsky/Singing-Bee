@@ -30,8 +30,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public class QuizActivity extends AppCompatActivity implements
-        RecognitionListener {
+public class QuizActivity extends AppCompatActivity implements RecognitionListener {
 
     private TextView mScoreView, mQuestion;
     private Button mTrueButton;
@@ -57,37 +56,16 @@ public class QuizActivity extends AppCompatActivity implements
     private Intent recognizerIntent;
     private String LOG_TAG = "MainActivity";
 
-    // [ A1= Fix: Remove Speech Synthesizer Sound]
     private AudioManager mAudioManager;
     private int mStreamVolume = 0;
     private Handler mHandler = new Handler();
 
-    // Attributes
     String answer = "hello";
 
 
     Boolean debug   = false;
     Boolean debug_1 = false;
     Boolean debug_1_val = false;
-
-    /* [FIX]
-        Library for Speech Synthesizer [android.Manifest]
-        - A1= Fix: Remove Speech Synthesizer Sound
-
-        Debug:
-            Line 164
-
-     */
-
-        /* [Attributes]
-        |   Title  |   Lyrics   | Status | File       |   Answer    |
-      •  Pyramid                    x      song_1.mp3   solid rock
-      •  Despacito                  o      song_2.mp3   blah blah
-      •  Starboy                    x      song_3.mp3   start boy
-      •  Closer                     o      song_4.mp3
-    */
-        // End Speech Recognition
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -99,7 +77,6 @@ public class QuizActivity extends AppCompatActivity implements
         mQuestion =  (TextView) findViewById(R.id.question);
         mTrueButton= (Button)   findViewById(R.id.trueButton);
         Button mToggle = (Button) findViewById(R.id.toggleButton1);
-        //mFalseButton=(Button)   findViewById(R.id.falseButton);
         Button mPlay = (Button) findViewById(R.id.debug_play);
         Button mStop= (Button)   findViewById(R.id.debug_stop);
 
@@ -191,7 +168,6 @@ public class QuizActivity extends AppCompatActivity implements
         // DEBUG INITIALIZE
         Button mdebug_play = (Button) findViewById(R.id.debug_play);
 
-
         progressBar.setVisibility(View.INVISIBLE);
         speech = SpeechRecognizer.createSpeechRecognizer(this);
         Log.i(LOG_TAG, "isRecognitionAvailable: " + SpeechRecognizer.isRecognitionAvailable(this));
@@ -203,7 +179,6 @@ public class QuizActivity extends AppCompatActivity implements
                 RecognizerIntent.LANGUAGE_MODEL_FREE_FORM);
         recognizerIntent.putExtra(RecognizerIntent.EXTRA_MAX_RESULTS, 3);
 
-        // [ A1= Fix: Remove Speech Synthesizer Sound]
         mAudioManager = (AudioManager) getSystemService(Context.AUDIO_SERVICE);
 
         toggleButton.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
@@ -226,8 +201,6 @@ public class QuizActivity extends AppCompatActivity implements
             }
         });
 
-
-        // Start Debug:
         if(debug) {
             mdebug_play.performClick();
         }
@@ -239,18 +212,12 @@ public class QuizActivity extends AppCompatActivity implements
         mQuestion.setText(QuizBook.questions[mQuestionNumber]);
         mAnswer = QuizBook.answers[mQuestionNumber];
 
-        // Shuffle here
-         pivot++;
+        pivot++;
 
-
-        // Debug:
         Log.d("Debug: ",Integer.toString(mQuestionNumber)  );
         Log.d("Debug: ", "======================" + Integer.toString(rotation) + ":" + Integer.toString(QuizBook.questions.length));
         Toast.makeText(this,QuizBook.check[mQuestionNumber], Toast.LENGTH_LONG).show();
-
         rotation++;
-        //mQuestionNumber= arr.get(pivot);
-
 
         // Animation
 
@@ -258,7 +225,6 @@ public class QuizActivity extends AppCompatActivity implements
         Animation frombottom = AnimationUtils.loadAnimation(this, R.anim.frombottom);
         Animation fromtop = AnimationUtils.loadAnimation(this,R.anim.fromtop);
         Animation fromright = AnimationUtils.loadAnimation(this,R.anim.fromright);
-
         // Animation End
 
         TextView mScores = (TextView) findViewById(R.id.scores);
@@ -269,12 +235,7 @@ public class QuizActivity extends AppCompatActivity implements
         mScores.startAnimation(fromtop);
         mScoreView.startAnimation(fromtop);
         mQuestion.startAnimation(fromright);
-        //mPlay.startAnimation(frombottom);
-        //mStop.startAnimation(frombottom);
         mToggle.startAnimation(frombottom);
-
-
-
     }
 
     public void updateScore(int point){
@@ -305,24 +266,7 @@ public class QuizActivity extends AppCompatActivity implements
                 @Override
                 public void onCompletion(MediaPlayer mp) {
                     stopPlayer();
-                    // Add Voice Recognition
-                    // Retrieve String Voice Recognition
-
-                    // Rand_gen [ Range 1-5sec ]
-
-                    // if(Match if Retrieved String Voice Recognition == Answer)
-                    //      play_correct();
-                    // else
-                    //      play_wrong();
-
-                    // Execute stopPlayer();
-
-                    // Start
                     toggleButton.performClick();
-
-
-
-
                 }
             });
         }
@@ -397,7 +341,6 @@ public class QuizActivity extends AppCompatActivity implements
         }
     }
 
-
     @Override
     public void onBeginningOfSpeech() {
         Log.i(LOG_TAG, "onBeginningOfSpeech");
@@ -460,16 +403,12 @@ public class QuizActivity extends AppCompatActivity implements
     @SuppressLint("SetTextI18n")
     @Override
     public void onResults(Bundle results) {
-        // [ A1= Fix: Remove Speech Synthesizer Sound]
         startAudioSound();
 
         Log.i(LOG_TAG, "onResults");
         ArrayList<String> matches = results
                 .getStringArrayList(SpeechRecognizer.RESULTS_RECOGNITION);
         String text = matches.get(0);
-        //for (String result : matches)
-        //    text += result + "\n";
-
 
         if(debug){
             text = "hello";
