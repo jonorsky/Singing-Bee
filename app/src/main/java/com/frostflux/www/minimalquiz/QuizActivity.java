@@ -122,7 +122,7 @@ public class QuizActivity extends AppCompatActivity implements RecognitionListen
 
                     // Check if last question
                     if(rotation == Database.questions.length){
-                        Intent i = new Intent(QuizActivity.this,ResultsActivity.class);
+                        Intent i = new Intent(QuizActivity.this, Last_Page.class);
                         Bundle bundle = new Bundle();
                         bundle.putInt("finalScore",mScore);
                         i.putExtras(bundle);
@@ -138,7 +138,7 @@ public class QuizActivity extends AppCompatActivity implements RecognitionListen
                 else{
                     // Check if last question
                     if(mQuestionNumber == Database.questions.length){
-                        Intent i = new Intent(QuizActivity.this,ResultsActivity.class);
+                        Intent i = new Intent(QuizActivity.this, Last_Page.class);
                         Bundle bundle = new Bundle();
                         bundle.putInt("finalScore",mScore);
                         i.putExtras(bundle);

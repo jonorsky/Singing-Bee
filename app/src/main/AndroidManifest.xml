@@ -22,7 +22,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".QuizActivity" />
-        <activity android:name=".ResultsActivity"></activity>
+        <activity android:name=".Last_Page"></activity>
     </application>
 
 </manifest>
