@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/bgapp3"
-    tools:context=".ResultsActivity">
+    tools:context=".Last_Page">
 
     <TextView
         android:id="@+id/grade"

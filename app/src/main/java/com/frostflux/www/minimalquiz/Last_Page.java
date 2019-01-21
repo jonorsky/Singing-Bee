@@ -7,7 +7,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-public class ResultsActivity extends AppCompatActivity {
+public class Last_Page extends AppCompatActivity {
 
     TextView mGrade, mFinalScore;
     Button mRetryButton;
@@ -24,7 +24,7 @@ public class ResultsActivity extends AppCompatActivity {
         Bundle bundle = getIntent().getExtras();
         int score = bundle.getInt("finalScore");
 
-        mFinalScore.setText("You scored " + score + " out of " + QuizBook.questions.length);
+        mFinalScore.setText("You scored " + score + " out of " + Database.questions.length);
 
         if(score==3){
             mGrade.setText("Outstanding!");
@@ -38,8 +38,8 @@ public class ResultsActivity extends AppCompatActivity {
         mRetryButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(ResultsActivity.this,QuizActivity.class));
-                ResultsActivity.this.finish();
+                startActivity(new Intent(Last_Page.this, Mid_Page.class));
+                Last_Page.this.finish();
             }
         });
     }

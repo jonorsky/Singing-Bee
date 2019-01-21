@@ -11,7 +11,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-public class MainActivity extends AppCompatActivity {
+public class First_Page extends AppCompatActivity {
 
     Button mStartButton;
 
@@ -51,7 +51,7 @@ public class MainActivity extends AppCompatActivity {
         mStartButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this,QuizActivity.class));
+                startActivity(new Intent(First_Page.this, Mid_Page.class));
             }
         });
     }
