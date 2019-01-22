@@ -160,7 +160,6 @@ public class Mid_Page extends AppCompatActivity implements RecognitionListener {
         // End Button
 
         // Start Speech Recognition
-        // Start onCreate
         returnedText  = (TextView)     findViewById(R.id.textView1);
         progressBar   = (ProgressBar)  findViewById(R.id.progressBar1);
         toggleButton  = (ToggleButton) findViewById(R.id.toggleButton1);
