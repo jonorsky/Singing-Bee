@@ -156,9 +156,6 @@ public class Mid_Page extends AppCompatActivity implements RecognitionListener {
         });
         // End Button
 
-
-        // End Button
-
         // Start Speech Recognition
         returnedText  = (TextView)     findViewById(R.id.textView1);
         progressBar   = (ProgressBar)  findViewById(R.id.progressBar1);
@@ -381,7 +378,6 @@ public class Mid_Page extends AppCompatActivity implements RecognitionListener {
     @SuppressLint("SetTextI18n")
     @Override
     public void onResults(Bundle results) {
-        startAudioSound();
 
         Log.i(LOG_TAG, "onResults");
         ArrayList<String> matches = results
@@ -406,14 +402,6 @@ public class Mid_Page extends AppCompatActivity implements RecognitionListener {
         s_sound.start();
 
         returnedText.setText(text);
-    }
-
-
-    // [ A1= Fix: Remove Speech Synthesizer Sound]
-    private void startAudioSound() {
-        //  mHandler.postDelayed(() -> {
-        //      mAudioManager.setStreamVolume(AudioManager.STREAM_MUSIC, mStreamVolume, 0); // again setting the system volume back to the original, un-mutting
-        //  }, 300);
     }
 
     @Override
