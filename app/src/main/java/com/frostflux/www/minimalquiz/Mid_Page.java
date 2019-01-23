@@ -381,7 +381,6 @@ public class Mid_Page extends AppCompatActivity implements RecognitionListener {
     @SuppressLint("SetTextI18n")
     @Override
     public void onResults(Bundle results) {
-        startAudioSound();
 
         Log.i(LOG_TAG, "onResults");
         ArrayList<String> matches = results
