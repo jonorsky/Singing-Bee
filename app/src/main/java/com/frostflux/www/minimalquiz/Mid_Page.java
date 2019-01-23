@@ -408,14 +408,6 @@ public class Mid_Page extends AppCompatActivity implements RecognitionListener {
         returnedText.setText(text);
     }
 
-
-    // [ A1= Fix: Remove Speech Synthesizer Sound]
-    private void startAudioSound() {
-        //  mHandler.postDelayed(() -> {
-        //      mAudioManager.setStreamVolume(AudioManager.STREAM_MUSIC, mStreamVolume, 0); // again setting the system volume back to the original, un-mutting
-        //  }, 300);
-    }
-
     @Override
     public void onRmsChanged(float rmsdB) {
         Log.i(LOG_TAG, "onRmsChanged: " + rmsdB);
